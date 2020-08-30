@@ -1,0 +1,20 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Admin-Category')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-tittle Add New
+                |  Category
+            .row.contact-main-info.mt-5
+                .col-md-12.contact-right-content
+                    form.form--add-category
+                        input#name(type='text', name='name', placeholder='Name', required)
+                        .read.mt-3
+                            button.custom__button(type='submit') Add
+

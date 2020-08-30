@@ -1,0 +1,60 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Blog')
+
+    section.ab-info-main.py-md-5
+        .container.py-md-3
+            h3.tittle.text-center.mb-lg-5.mb-3= blog.title
+            .speak.px-lg-5
+                .row.mt-lg-5.mt-4
+                    .col-md-12.events-img
+                        img.img-fluid.blog__image(src=`/img/blogs/${blog.images[0]}`, alt=`${blog.title}`)
+                    .col-md-12.events-info.my-3
+                        h3
+                            span.sub-tittle 01 
+                            p= `${blog.category}`
+                        h4.my-3
+                            a.text-dark(href="#")= `${blog.title.toUpperCase()}`
+                        p= blog.summary
+                        - const paragraphs = blog.description.split('\n');
+                        each paragraph in paragraphs
+                            p= paragraph
+                .row.my-lg-5.my-3
+                    .col-md-6.text-info
+                        //- p= `${blog.description.substring(0, 200)}`
+                        p= blog.summary
+                    .col-md-6.team-
+                        img.img-fluid(src=`/img/blogs/${blog.images[1]}`, alt=`${blog.title}`)
+
+                        - const datePosted = blog.createdAt.toLocaleString('en-us', {day: 'numeric', month: 'long', year: 'numeric'})
+                        p.blog__user= `Posted by ${blog.user.username} on ` 
+                            span= `${datePosted}`
+                .single-form-left
+                    if (user)
+                        .contact-single
+                            h3
+                                span.sub-tittle 01
+                                | Leave a Reply
+                            form.mt-4(action=`/blogs/${blog._id}/comments`, method="POST")
+                                .form-group
+                                    label(for="contactcomment") Your Comment *
+                                    textarea#contactcomment.form-control.border(name="commentBody", cols="30", rows="5", required)
+                                button.mt-3.btn.btn-success.btn-block.py-3(type="submit") Post Comment
+                    else
+                        p
+                            | Please 
+                            a(href="/auth/login") log in 
+                            | to leave a comment
+
+                h5.comment__counts.mt-3= `Comments(${blog.comments.length})`
+                each comment in blog.comments
+                    .media.py-5
+                        img.mr-3.img-fluid.rounded-circle.comment__img(src=`/img/users/${comment.user.photo}`, alt=`${comment.user.username}`)
+                        .media-body
+                            h5.mt-0= comment.user.fullName
+                            p.mt-2= comment.commentBody
+

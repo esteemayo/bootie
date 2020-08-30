@@ -1,0 +1,60 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Checkout')
+
+    if (typeof cart !== 'undefined')
+
+        section.ab-info-main.py-md-5
+            .container.py-md-3
+                h3.tittle.text-center.mb-lg-5.mb-3= `My Cart (${cart.length})`
+                    .speak.px-lg-5
+                        .row.mt-lg-5.mt-4
+                            table.table
+                                thead.checkout
+                                    tr
+                                        th #
+                                        th Image
+                                        th Name
+                                        th Price
+                                        th Quantity
+                                        th
+                                        th Subtotal
+                                tbody
+                                    - let total = 0;
+                                    each product, i in cart
+                                        - const price = parseFloat(product.priceDiscount).toFixed(2);
+                                        - const sub = parseFloat(product.qty * price).toFixed(2);
+                                        p.hidden !{total+= +sub}
+                                        tr.checkout__product
+                                            td= `${i + 1}`
+                                            td
+                                                img.checkout__image(src=`${product.image}`, alt=`${product.name}-${i + 1}`)
+                                            td= `${product.name.toUpperCase()}`
+                                            td= product.priceDiscount
+                                            td= product.qty
+                                            td
+                                                a.add(href=`/products/cart/update/${product.slug}?action=add`)  &nbsp;+ &nbsp;
+                                                a.remove(href=`/products/cart/update/${product.slug}?action=remove`) &nbsp; - &nbsp;
+                                                a.clear(href=`/products/cart/update/${product.slug}?action=clear`) &nbsp; X &nbsp;
+                                            td= `${sub}`
+
+                                    tr.total
+                                        td
+                                        td.total__right(colspan='6', align='right')
+                                            strong= `Total: $${parseFloat(total).toFixed(2)}`
+                                    tr.checkout__btn
+                                        td.btn__clear(colspan='6', align='right')
+                                            a.clear__cart(href='/products/cart/clear') Clear cart
+                                        td.btn__pay(colspan='6', align='right')
+                                            a.pay__now(href='/products/cart/payment') Pay now
+                                        td
+                                        td
+
+    else
+        section.checkout__empty                
+            h3 Your cart is empty
+

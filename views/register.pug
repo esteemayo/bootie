@@ -1,0 +1,70 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Register Page')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-title Register Your Account
+            .row.contact-main-info.mt-5
+                .col-md-4.contact-right-content
+                .col-md-4.contact-right-content
+                    form.form--register
+                        label(for="firstName") First Name 
+                            span.field__required *
+                        input#firstName(type="text", name="firstName" required)
+
+                        label(for="lastName") Last Name 
+                            span.field__required *
+                        input#lastName(type="text", name="lastName" required)
+
+                        label(for="email") Email 
+                            span.field__required *
+                        input#email(type="email", name="email", placeholder="user@example.com", required)
+
+                        label(for="username") Username 
+                            span.field__required *
+                        input#username(type="text", name="username", required)
+
+                        label(for="phone") Phone Number 
+                            span.field__required *
+                        input#phone(type="tel", name="phone", required)
+
+                        label(for="dateOfBirth") DOB
+                        input#dateOfBirth(type="date", name="dateOfBirth")
+                        
+                        label(for="gender") Gender
+                        input#gender(type="text", name="gender")
+
+                        label(for="streetAddress") Street Address
+                        input#streetAddress(type="text" name="streetAddress")
+
+                        label(for="city") City
+                        input#city(type="text" name="city")
+
+                        label(for="state") State
+                        input#state(type="text" name="state")
+
+                        label(for="zipCode") Zip Code
+                        input#zipCode(type="number", name="zipCode")
+
+                        label(for="bio") Bio
+                        textarea#bio(name="bio", cols="30", rows="5")
+
+                        label(for="password") Password 
+                            span.field__required *
+                        input#password(type="password", name="password", placeholder="********", required)
+
+                        label(for="passwordConfirm") Confirm Password 
+                            span.field__required *
+                        input#passwordConfirm(type="password", name="passwordConfirm", placeholder="********", required)
+
+                        label(for="photo") Photo
+                        input#photo.img__upload(type="file", name="photo", accept="image/*")
+                        .read.mt-3
+                            input(type="submit", value="Register")
+

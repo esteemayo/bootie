@@ -1,0 +1,114 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('About Us')
+
+    section.hand-crafted.py-5
+        .container
+            .inner-sec.py-md-5.px-lg-5
+                h3.tittle.text-center
+                    span.sub-tittle About.
+                    |  Welcome To Our Website
+                p.mb-4.text-center.px-lg-4
+                    | Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla mollis dapibus nunc, ut rhoncus turpis sodales quis. Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.
+  
+    section.about.py-md-5.py-5
+        .container.py-md-3
+            h3.tittle.text-center What We Offer
+            .feature-grids.row
+                .col-md-4.gd-bottom.mt-lg-4
+                    .bottom-gd.p-lg-5.p-4
+                        span.fa.fa-truck(aria-hidden='true')
+                        h3.my-3
+                            | FREE SHIPPING
+                        p
+                            | Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.
+                .col-md-4.gd-bottom.mt-lg-4
+                    .bottom-gd2-active.p-lg-5.p-4
+                        span.fa.fa-bullhorn(aria-hidden='true')
+                        h3.my-3 FREE RETURN
+                        p
+                            | Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.
+                .col-md-4.gd-bottom.mt-lg-4
+                    .bottom-gd.p-lg-5.p-4
+                        span.fa.fa-gift(aria-hidden='true')
+                        h3.my-3 MEMBER DISCOUNT
+                        p
+                            | Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.
+
+    section.hand-crafted.py-5
+        .container.py-md-3
+            .row.banner-grids
+                .col-md-6.banner-image
+                    .effect-w3
+                        img.img-fluid.image1(src='/images/about.jpg' alt='')
+                .col-md-6.last-img.pl-lg-5.p-3
+                    h3.tittle.mb-lg-5.mb-3
+                        span.sub-tittle THE SEASON BEGINGS 
+                        | PROMOTION SALE OFF 50%
+                    p.mb-4
+                    | Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla mollis dapibus nunc, ut rhoncus turpis sodales quis. Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.
+                    ul.tic-info.list-unstyled
+                        li
+                            span.fa.fa-check.mr-2
+                            |  Integer sit amet mattis quam
+                        li
+                            span.fa.fa-check.mr-2
+                            |  Praesent ullamcorper dui turpis
+                        li
+                            span.fa.fa-check.mr-2
+                            |  Integer sit amet mattis quam
+                        li
+                            span.fa.fa-check.mr-2
+                            |  Integer sit amet mattis quam
+
+    section#stats.stats.py-5
+        .container.py-md-3
+            .row.stat-grids
+                .col-lg-6.ser-lt
+                    .d-flex.services-box
+                        .icon
+                            span.fa.fa-line-chart
+                        .service-content
+                            h4 Inagittis Lacg
+                            p.serp Quisque sagittis lacus eu lorem sodalesd vulputate velitdipisc inagittis lacg enean adipiscing.
+                    .d-flex.services-box.ser-midd
+                        .icon
+                            span.fa.fa-bell-o
+                        .service-content
+                            h4 Velitdipisc Inagittis
+                            p.serp Quisque sagittis lacus eu lorem sodalesd vulputate velitdipisc inagittis lacg enean adipiscing.
+                    .d-flex.services-box.bx-4
+                        .icon
+                            span.fa.fa-line-chart
+                        .service-content
+                            h4 Sagittis Lacus
+                            p.serp Quisque sagittis lacus eu lorem sodalesd vulputate velitdipisc inagittis lacg enean adipiscing.
+                .col-lg-6.ser-lt.ser-right
+                    .d-flex.services-box
+                        .icon
+                            span.fa.fa-line-chart
+                        .service-content
+                            h4 Inagittis Lacg
+                            p.serp Quisque sagittis lacus eu lorem sodalesd vulputate velitdipisc inagittis lacg enean adipiscing.
+                    .d-flex.services-box.ser-midd
+                        .icon
+                            span.fa.fa-bell-o
+                        .service-content
+                            h4 Velitdipisc Inagittis
+                            p.serp Quisque sagittis lacus eu lorem sodalesd vulputate velitdipisc inagittis lacg enean adipiscing.
+                    .d-flex.services-box.bx-4
+                        .icon
+                            span.fa.fa-line-chart
+                        .service-content
+                            h4 Sagittis Lacus
+                            p.serp Quisque sagittis lacus eu lorem sodalesd vulputate velitdipisc inagittis lacg enean adipiscing.
+
+
+    include _review
+
+    include _popularProduct
+

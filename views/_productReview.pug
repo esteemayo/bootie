@@ -1,0 +1,10 @@
+mixin productReview(review)
+    .media.py-4
+        img.mr-3.img-fluid.rounded-circle.comment__img(src=`/img/users/${review.user.photo}`, alt=`${review.user.fullName}`)
+        .media-body
+            h5.mt-0.mb-2= review.user.firstName
+            .reviews__rating
+                each star in [1, 2, 3, 4, 5]
+                    svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+                        use(xlink:href='/img/icons.svg#icon-star')
+            p.mt-2= review.review

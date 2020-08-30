@@ -1,0 +1,22 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Admin-Category')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-tittle Edit
+                |  Category
+            .row.contact-main-info.mt-5
+                .col-md-12.contact-right-content
+                    form.form--edit-category
+                        input#name(type='text', name='name', value=`${category.name}`, placeholder='Name', required)
+                        input#catId(type='hidden', name='catId', value=`${category._id}`)
+                        .read.mt-3
+                            button.custom__button(type='submit') Edit
+                            //- input(type='submit', value='Edit', data-cat-id=`${category._id}`)
+

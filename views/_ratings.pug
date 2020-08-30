@@ -1,0 +1,10 @@
+mixin ratings(review)
+    img.mr-3.img-fluid.rounded-circle.comment__img(src=`/img/users/${review.user.photo}`, alt=`${review.user.username}`)
+    h3.my-md-2.my-3= review.user.fullName
+    each star in [1, 2, 3, 4, 5]
+        svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+            use(xlink:href='/img/icons.svg#icon-star')
+    p
+        span.fa.fa-quote-left 
+        |  #{review.review } 
+        span.fa.fa-quote-right

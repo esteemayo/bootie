@@ -1,0 +1,8 @@
+include _ratings
+
+section.testimonials.py-5
+    .container
+        .test-info.text-center
+            each review in reviews
+                +ratings(review)
+

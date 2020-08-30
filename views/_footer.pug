@@ -1,0 +1,74 @@
+footer
+  .container
+    .row.footer-top
+      .col-lg-4.footer-grid_section_w3layouts
+        h2.logo-2.mb-lg-4.mb-3
+          a(href='/')
+            span.fa.fa-bold(aria-hidden='true')
+            | ootie
+        p
+          | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        h4.sub-con-fo.ad-info.my-4 Catch on Social
+        include _socialIcons
+      .col-lg-8.footer-right
+        .w3layouts-news-letter
+          h3.footer-title.text-uppercase.text-wh.mb-lg-4.mb-3 Newsletter
+          p
+            | By subscribing to our mailing list you will always get latest news and updates from us.
+          form.w3layouts-newsletter(action='#' method='POST')
+            input(type='email' name='Email' placeholder='Enter your email...' required='')
+            button.btn1
+              span.fa.fa-paper-plane-o(aria-hidden='true')
+        .row.mt-lg-4.bottom-w3layouts-sec-nav.mx-0
+          .col-md-4.footer-grid_section_w3layouts
+            h3.footer-title.text-uppercase.text-wh.mb-lg-4.mb-3 Information
+            ul.list-unstyled.w3layouts-icons
+              li
+                a(href='/') Home
+              li.mt-3
+                a(href='/about') About Us
+              li.mt-3
+                a(href='#') Gallery
+              li.mt-3
+                a(href='#') Services
+              li.mt-3
+                a(href='/contact') Contact Us
+          .col-md-4.footer-grid_section_w3layouts
+            //- social icons
+            .agileinfo_social_icons
+              h3.footer-title.text-uppercase.text-wh.mb-lg-4.mb-3 Customer Service
+              ul.list-unstyled.w3layouts-icons
+                li
+                  a(href='/about') About Us
+                li.mt-3
+                  a(href='#') Delivery &amp; Returns
+                li.mt-3
+                  a(href='#') Waranty
+                li.mt-3
+                  a(href='/terms-and-conditions') Terms &amp; Condition
+                li.mt-3
+                  a(href='/privacy-policy') Privacy Policy
+            //- social icons
+          .col-md-4.footer-grid_section_w3layouts.my-md-0.my-5
+            h3.footer-title.text-uppercase.text-wh.mb-lg-4.mb-3 Contact Info
+            .contact-info
+              .footer-address-inf
+                h4.ad-info.mb-2 Phone
+                p +121 098 8907 9987
+              .footer-address-inf.my-4
+                h4.ad-info.mb-2 Email 
+                p
+                  a(href='mailto:info@bootie.com') info@bootie.com
+              .footer-address-inf
+                h4.ad-info.mb-2 Location
+                p Honey Avenue, New York City
+        .cpy-right.text-left.row
+          - const date = new Date();
+          p.col-md-10
+            | &copy; Copyright 2019 - #{date.getFullYear()} Bootie Products, Inc. All rights reserved | Design by
+            a(href='http://w3layouts.com')  W3layouts.
+          //- move top icon
+          a.move-top.text-right.col-md-2(href='#home')
+            span.fa.fa-long-arrow-up(aria-hidden='true')
+          //- move top icon
+

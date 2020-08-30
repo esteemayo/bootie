@@ -1,0 +1,90 @@
+extends base
+
+include _headLine
+include _productReview
+
+block content
+
+    +headLine(product.name)
+
+    section.ab-info-main.py-md-5.py-4
+        .container.py-md-3
+            .row
+                //- product left
+                include _sidebar
+
+                //- product right
+                .left-ads-display.col-lg-8
+                    .row
+                        .desc1-left.col-md-6
+                            img.img-fluid(src=`/img/products/${product.image}` alt=`${product.name}`)
+                            p Rating: 
+                                span= `${product.ratingsAverage} / 5`
+                            p Number of ratings: 
+                                span= `${product.ratingsQuantity}`
+
+                        .desc1-right.col-md-6.pl-lg-4
+                            h3= product.name
+                            h5= `$${product.priceDiscount}`
+                                | 
+                                span= product.price
+                                if (user && user.role === 'user')
+                                    a(href=`/products/cart/add/${product.slug}`) click for offer
+                            .available.mt-3
+                                //- form.w3layouts-newsletter(action='#' method='post')
+                                //-     input(type='email' name='Email' placeholder='Enter your email...' required='')
+                                //-     button.btn1 Check
+                                //- span
+                                //-     a(href='#') login to save in wishlist 
+                                if user
+                                    if (user.role === 'user')
+                                        a.cart__link(href=`/products/cart/add/${product.slug}`) Add item to cart
+                                else
+                                    a.product__login(href='/auth/login') Login to save in wishlist 
+                                p.mt-3= product.summary
+        
+                            .share-desc
+                                .share
+                                    h4 Share Product :
+                                    include _socialIcons
+
+                                .clearfix
+                    .row.sub-para-w3layouts.mt-5
+                        h3.shop-sing= product.name
+                        - const paragraphs = product.description.split('\n')
+                        each paragraph in paragraphs
+                            p= paragraph
+                        p.mt-3.italic-blue=`${product.summary}`
+                        p.mt-3
+                    h3.shop-sing Featured Products
+                    .row.m-0
+                        include _featuredProducts
+
+                    .single-form-left
+                        if (user)
+                            if (user.role !== 'admin')
+                                .contact-single
+                                    h3.review__heading
+                                        span.sub-tittle 
+                                        | Leave a Review
+                                    form.mt-4(action=`/products/${product._id}/reviews`, method='POST')
+                                        .form-group
+                                            label(for="review") Your Review *
+                                            textarea#review.form-control.border(name='review', cols='30', rows='5', required)
+                                            br
+                                            label(for='rating') Rating *
+                                            input#rating.form-control.border(type='number', name='rating', min='1', max='5' required)
+                                        button.mt-3.btn.btn-block.py-3.review__btn(type='submit') Send Review
+                                        br
+                            else
+                                h6.review__loginmsg An admin is not authorized to post a review
+                        else
+                            h6.review__loginmsg
+                                | Please 
+                                a(href="/auth/login") log in 
+                                | to leave a review
+
+                        h3.review__counts.shop-sing.mt-3= `Reviews(${product.reviews.length})`
+                        each review in product.reviews
+                            +productReview(review)
+

@@ -1,0 +1,29 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Blogs')
+
+    if (blogs.length === 0)
+        h3.product__empty Blogs are not available 😭😭😰
+    else
+        section.ab-info-main.py-5
+            .container.py-lg-3
+                .ab-info-grids
+                    h3.tittle.text-center.mb-lg-5.mb-3 Blog Posts
+                    #products.row.view-group
+                        each blog in blogs
+                            .item.col-lg-4.mt-lg-4
+                                .thumbnail.card
+                                    .img-event
+                                        img.group.list-group-image.img-fluid(style="width: 100%; height: 174px;" src=`/img/blogs/${blog.images[0]}` alt=`${blog.title}`)
+                                    .caption.card-body
+                                        h4.group.card-title.inner.list-group-item-heading= `${blog.title.substring(0, 30)}...`
+                                        p.group.inner.list-group-item-textre= `${blog.summary.substring(0, 60)}...`
+                                        .row
+                                            .col-6
+                                                p.lead= `$${blog.price}`
+                                            .col-6.ban-buttons
+                                                a.btn.btn-course(href=`/blogs/${blog.slug}`) View More

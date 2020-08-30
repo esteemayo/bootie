@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "5f22f94f956a4949dcc8c0af",
+    "name": "Shoes",
+    "slug": "shoes"
+  },
+  {
+    "_id": "5f22f956956a4949dcc8c0b0",
+    "name": "Flat",
+    "slug": "flat"
+  },
+  {
+    "_id": "5f163100fcb175376c5d70a3",
+    "name": "Bellies",
+    "slug": "bellies"
+  },
+  {
+    "_id": "5f16315efcb175376c5d70a6",
+    "name": "Heels",
+    "slug": "heels"
+  },
+  {
+    "_id": "5f163188fcb175376c5d70a8",
+    "name": "Casuals",
+    "slug": "casuals"
+  },
+  {
+    "_id": "5f1632c4fcb175376c5d70aa",
+    "name": "Sneakers",
+    "slug": "sneakers"
+  },
+  {
+    "_id": "5f1632cffcb175376c5d70ab",
+    "name": "Toes",
+    "slug": "toes"
+  },
+  {
+    "_id": "5f163410f210ac46807c2ea4",
+    "name": "Loafers",
+    "slug": "loafers"
+  }
+]

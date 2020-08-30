@@ -1,0 +1,38 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Admin-Blog')
+
+    section.ab-info-main.py-md-5
+        .container.py-md-3
+            h3.tittle.text-center.mb-lg-5.mb-3 Blogs
+                .speak.px-lg-5
+                    .row.mt-lg-5.mt-4
+                        //- .col-md-12.events-info.my-3
+                        table.table
+                            thead
+                                tr
+                                    th #
+                                    th Title
+                                    th Image
+                                    th Edit
+                                    th Delete
+                            tbody
+                                each blog, i in blogs
+                                    tr
+                                        td= `${i + 1}`
+                                        td= blog.title
+                                        td
+                                            img.admin__image(src=`/img/blogs/${blog.images[0]}`, alt=`${blog.title}`)
+                                        td 
+                                            a(href=`/admin/blogs/${blog._id}/edit`) Edit
+                                        td 
+                                            form(action=`/admin/blogs/${blog._id}?_method=DELETE`, method="POST")
+                                                input(type="submit", value="Delete")
+
+    section.admin__add                
+        p
+            a.admin__addBtn(href='/admin/blogs/add') Add New Blog

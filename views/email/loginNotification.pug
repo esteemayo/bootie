@@ -1,0 +1,14 @@
+extends baseEmail
+
+block content
+    p Dear #{fullName},
+    h4 #{subject}
+    - const time = new Date(Date.now());
+    p Please be informed that your bootie.com account was accessed at #{time.toString()}
+    p If you did not log on to your BOOTIE account at the time detailed above, please call BOOTIECONNECT; our 24 hour interactive contact on: (+121) 098 8907 9987 or send an email to 
+        a(href="mailto:info@bootie.com") info@bootie.com 
+        |  immediately.
+    
+    p Thank you for trusting us.
+    - const year = new Date();
+    p &copy; Copyright #{year.getFullYear()} Bootie Products, Inc. All rights reserved

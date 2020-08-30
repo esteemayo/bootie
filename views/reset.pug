@@ -1,0 +1,24 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Reset Your Password')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-title Password Reset
+            .row.contact-main-info.mt-5
+                .col-md-4.contact-right-content
+                .col-md-4.contact-right-content
+                    form(action=`/auth/reset/${token}`, method='POST')
+                        label(for="password") Password 
+                            span.field__required *
+                        input#password(type="password", name="password", placeholder="********", required autofocus)
+                        label(for="passwordConfirm") Confirm Password 
+                            span.field__required *
+                        input#passwordConfirm(type="password", name="passwordConfirm", placeholder="********", required)
+                        .read.mt-3
+                            input(type="submit", value="Reset Password")

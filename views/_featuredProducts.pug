@@ -1,0 +1,16 @@
+each product in featuredProducts
+    .col-md-4.product-men
+        .product-shoe-info.shoe.text-center
+            .men-thumb-item
+                img.img-fluid(src=`/img/products/${product.image}` alt=`${product.name}`)
+                span.product-new-top New
+            .item-info-product
+                h4
+                    a(href=`/products/${product.slug}`)= product.name 
+                .product_price
+                    .grid-price
+                        span.money= `$${product.price}`
+                    each star in [1, 2, 3, 4, 5]
+                        svg.products--reviews__star(class=`reviews__star--${product.ratingsAverage >= star ? 'active' : 'inactive'}`)
+                            use(xlink:href='/img/icons.svg#icon-star')
+    br

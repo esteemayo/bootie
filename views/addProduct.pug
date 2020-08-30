@@ -1,0 +1,46 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Admin-Product')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-tittle Add New
+                |  Product
+            .row.contact-main-info.mt-5
+                .col-md-12.contact-right-content
+                    form.form--add-product
+                        label(for="name") Name 
+                            span.field__required *
+                        input#name(type='text', name='name', required)
+                        
+                        label(for="description") Description 
+                            span.field__required *
+                        input#description(type='text', name='description', required)
+
+                        label(for="summary") Summary 
+                            span.field__required *
+                        input#summary(type='text', name='summary', required)
+
+                        label(for="category") Category
+                            span.field__required *
+                        select#category(name="category", required)
+                            each category in categories
+                                option(value=`${category.name}`)= category.name
+
+                        label(for="price") Price 
+                            span.field__required *
+                        input#price(type='number', name='price')
+
+                        label(for="priceDiscount") Price Discount 
+                            //- span.field__required *
+                        input#priceDiscount(type='number', name='priceDiscount')
+
+                        label(for="image")
+                            input#image(type="file", name="image", accept='image/*', required)
+                        .read.mt-3
+                            button.custom__button(type="submit") Add

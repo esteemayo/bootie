@@ -1,0 +1,38 @@
+extends base
+
+include _headLine
+include _productRating
+
+block content
+
+    +headLine('Products')
+
+    if (products.length === 0)
+        h3.product__empty Products are not available yet 🙄😏😫 !!!
+    else
+        section.ab-info-main.py-md-5.py-4
+            .container.py-md-3
+                .row
+                    //- product left
+                    include _sidebar
+
+                    //- product right
+                    .left-ads-display.col-lg-8
+                        .row
+                            each product in products
+                                .col-md-4.product-men.my-lg-4
+                                        .product-shoe-info.shoe.text-center
+                                            .men-thumb-item
+                                                img.img-fluid.product__image(src=`/img/products/${product.image}` alt=`${product.image}`)
+                                                span.product-new-top New
+                                            .item-info-product
+                                                h4
+                                                a(href=`/products/${product.slug}`)= product.name 
+                                                .product_price
+                                                    .grid-price
+                                                        span.money= `$${product.price}`
+                                                +productRating(product)
+
+                        .grid-img-right.mt-4.text-right
+                            span.money Flat 50% Off
+                            a.btn(href='/products') Shop Now

@@ -1,0 +1,44 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Admin-Blog')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-tittle Update
+                |  #{blog.title}
+            .row.contact-main-info.mt-5
+                .col-md-12.contact-right-content
+                    //- With API
+                    form.form--update-blog
+                        label(for='title') Title 
+                            span.field__required *
+                        input#title(type='text', name='title', value=`${blog.title}`)
+                        
+                        label(for='description') Description 
+                            span.field__required *
+                        input#description(type='text', name='description', value=`${blog.description}`)
+
+                        label(for='summary') Summary 
+                            span.field__required *
+                        input#summary(type='text', name='summary', value=`${blog.summary}`)
+
+                        label(for='category') Category
+                            span.field__required *
+                        select#category(name="category", required)
+                            each category in categories
+                                option(value=`${category.name}`)= category.name
+
+                        label(for='price') Price 
+                            span.field__required *
+                        input#price(type='number', name='price' value=`${blog.price}`)
+
+                        label(for='images') Images
+                            input#images(type='file', name='images', accept='image/*', multiple, required)
+                        .read.mt-3
+                            input#blogId(type='hidden', name='blogId', value=`${blog._id}`)
+                            button.custom__button(type='submit') Update

@@ -1,0 +1,36 @@
+extends base
+
+include _productRating
+
+block content
+    
+    include _services
+ 
+    if (products.length === 0)
+        section.about.py-5
+            .container.pb-lg-3
+                h3.tittle.text-center New Arrivals
+                .row
+                    h3.product__empty Products are not available yet 🙄😏😫 !!!
+    else
+        section.about.py-5
+            .container.pb-lg-3
+                h3.tittle.text-center New Arrivals
+                .row
+                    each product in products
+                        .col-md-4.product-men.my-lg-4
+                            .product-shoe-info.shoe.text-center
+                                .men-thumb-item
+                                    img.img-fluid.product__image(style="width: 300px; height: 300px;" src=`/img/products/${product.image}` alt=`${product.name}`)
+                                    span.product-new-top New
+                                .item-info-product
+                                    h4
+                                        a(href=`/products/${product.slug}`)= product.name 
+                                    .product_price
+                                        .grid-price
+                                            span.money= `$${product.price}`
+                                    +productRating(product)
+    
+    include _review
+    
+    include _popularProduct

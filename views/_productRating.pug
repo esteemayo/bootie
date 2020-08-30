@@ -1,0 +1,4 @@
+mixin productRating(product)
+    each star in [1, 2, 3, 4, 5]
+        svg.products--reviews__star(class=`reviews__star--${product.ratingsAverage >= star ? 'active' : 'inactive'}`)
+            use(xlink:href='/img/icons.svg#icon-star')

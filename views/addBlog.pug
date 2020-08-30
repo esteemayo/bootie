@@ -1,0 +1,46 @@
+extends base
+
+include _headLine
+
+block content
+
+    if (user && user.role === 'admin')
+        +headLine('Admin-Blog')
+    else if (user && user.role === 'user')
+        +headLine('Blog')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-tittle Add New
+                |  Blog
+            .row.contact-main-info.mt-5
+                .col-md-12.contact-right-content
+                    //- With API
+                    form.form--add-blog
+                        label(for='title') Title 
+                            span.field__required *
+                        input#title(type='text', name='title', required)
+                        
+                        label(for='description') Description 
+                            span.field__required *
+                        input#description(type='text', name='description', required)
+
+                        label(for='summary') Summary 
+                            span.field__required *
+                        input#summary(type='text', name='summary', required)
+
+                        label(for='category') Category
+                            span.field__required *
+                        select#category(name='category', required)
+                            each category in categories
+                                option(value=`${category.name}`)= category.name
+
+                        label(for='price') Price 
+                            span.field__required *
+                        input#price(type='number', name='price')
+
+                        label(for='images') Images
+                            input#images(type='file', name='images', accept='image/*', multiple, required)
+                        .read.mt-3
+                            button.custom__button(type='submit') Add

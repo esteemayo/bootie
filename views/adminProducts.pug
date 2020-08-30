@@ -1,0 +1,38 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Admin-Product')
+
+    section.ab-info-main.py-md-5
+        .container.py-md-3
+            h3.tittle.text-center.mb-lg-5.mb-3 Products
+                .speak.px-lg-5
+                    .row.mt-lg-5.mt-4
+                        //- .col-md-12.events-info.my-3
+                        table.table
+                            thead
+                                tr
+                                    th #
+                                    th Name
+                                    th Image
+                                    th Edit
+                                    th Delete
+                            tbody
+                                each product, i in products
+                                    tr
+                                        td= `${i + 1}`
+                                        td= product.name
+                                        td
+                                            img.admin__image(src=`/img/products/${product.image}`, alt=`${product.name}`)
+                                        td 
+                                            a(href=`/admin/products/${product._id}/edit`) Edit
+                                        td 
+                                            form(action=`/admin/products/${product._id}?_method=DELETE`, method="POST")
+                                                input(type="submit", value="Delete")
+
+    section.admin__add                
+        p
+            a.admin__addBtn(href='/admin/products/add') Add New Product

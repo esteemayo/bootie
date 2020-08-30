@@ -1,0 +1,26 @@
+//- product left
+.side-bar.col-lg-4
+    .search-bar.w3layouts-newsletter
+        h3.sear-head Search Here..
+        form.d-flex(action='/products' method='GET')
+            input.form-control(type='search' placeholder='Product name...' name='search' required)
+            button.btn1
+                span.fa.fa-search(aria-hidden='true')
+
+    .customer-rev.left-side.my-4
+        h3.sear-head Categories
+        ul.w3layouts-box-list
+            each category in categories
+                li
+                    a.sidebar__link(href=`/products/category/${category.slug}`)= category.name
+
+
+    .deal-leftmk.left-side
+        h3.sear-head Special Deals
+            each product in specialProducts
+                .special-sec1.row.mb-3.my-3
+                    .img-deals.col-md-4
+                        img.img-fluid(src=`/img/products/${product.image}` alt=`${product.name}`)
+                    .img-deal1.col-md-4
+                        h3= product.name
+                        a(href=`/products/${product.slug}`)= `$${product.price}`

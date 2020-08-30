@@ -1,0 +1,50 @@
+doctype html
+head
+  title Bootie Ecommerce | #{title} 
+  //- Meta tag Keywords
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  meta(charset='UTF-8')
+  meta(name='keywords' content='Bootie Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
+  script.
+    addEventListener("load", function() {
+    setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+    window.scrollTo(0, 1);
+    }
+  //- Meta tag Keywords
+  //- Custom-Files
+  link(rel="stylesheet", href="/css/custom.css")
+  link(rel='stylesheet' href='/css/bootstrap.css')
+  //- Bootstrap-Core-CSS
+  link(rel='stylesheet' href='/css/style.css' type='text/css' media='all')
+  //- Style-CSS
+  //- font-awesome-icons
+  link(href='/css/font-awesome.css' rel='stylesheet')
+  //- font-awesome-icons
+  //- Fonts
+  link(href='//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700' rel='stylesheet')
+  link(href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900' rel='stylesheet')
+  //- Fonts
+body
+    include _header
+    
+    block content
+        h1 A placeholder
+
+    include _footer
+
+    //- script(src='/js/bundle.js')
+    //- script(type='module', src='/js/alert.js')
+    //- script(type='module' src='/js/index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js')
+    script(src='https://js.stripe.com/v3/')
+    script(src='/js/checkout.js')
+    script(src='/js/authService.js')
+    script(src='/js/userService.js')
+    script(src='/js/categoryService.js')
+    script(src='/js/productService.js')
+    script(src='/js/blogService.js')
+    script(src='/js/updateService.js')
+
+

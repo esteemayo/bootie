@@ -1,0 +1,53 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Contact Us')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-tittle Find Us
+                |  Contact Us
+            .row.contact-main-info.mt-5
+                .col-md-6.contact-right-content
+                    form.form--contact-us
+                        input#name(type='text' name='name' placeholder='Name' required='')
+                        input#email.email(type='email' name='email' placeholder='Email' required='')
+                        input#phone(type='text' name='phone' placeholder='Phone' required='')
+                        textarea#message(name='message' placeholder='Message' required='')
+                        .read.mt-3
+                            input(type='submit' value='Submit')
+
+
+                .col-md-6.contact-left-content
+                    .address-con
+                        h4.mb-2
+                            span.fa.fa-phone-square(aria-hidden='true')
+                            |  Phone
+                        p +121 098 8907 9987
+                        p +121 079 2553 1345
+                    .address-con.my-4
+                        h4.mb-2
+                            span.fa.fa-envelope-o(aria-hidden='true')
+                            |  Email
+                        p
+                            a(href='mailto:support@bootie.com') support@bootie.com
+                        p
+                            a(href='mailto:customercare@bootie.com') customercare@bootie.com
+                    .address-con.mb-4
+                        h4.mb-2
+                            span.fa.fa-fax(aria-hidden='true')
+                            |  Fax
+                        p (800) 123-80088
+                    .address-con
+                        h4.mb-2
+                            span.fa.fa-map-marker(aria-hidden='true')
+                            |  Location
+                        p Honey Avenue, New York City
+
+
+            .map-fo.mt-lg-5.mt-4
+                iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423286.27404345275!2d-118.69191921441556!3d34.02016130939095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos+Angeles%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1522474296007' allowfullscreen='')

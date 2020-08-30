@@ -1,0 +1,30 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Admin-Review')
+
+    section.ab-info-main.py-md-5
+        .container.py-md-3
+            h3.tittle.text-center.mb-lg-5.mb-3= `Reviews (${reviews.length})`
+                .speak.px-lg-5
+                    .row.mt-lg-5.mt-4
+                        table.table
+                            thead
+                                tr
+                                    th #
+                                    th Review
+                                    th Rating
+                                    th Delete
+                            tbody
+                                each review, i in reviews
+                                    tr
+                                        td= `${i + 1}`
+                                        td= `${review.review.substring(0, 80)}...`
+                                        td= review.rating
+                                        td 
+                                            form(action=`/admin/reviews/${review._id}?_method=DELETE`, method="POST")
+                                                input(type="submit", value="Delete")
+

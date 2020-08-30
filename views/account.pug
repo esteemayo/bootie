@@ -1,0 +1,84 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Account Settings')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-tittle #{user.fullName}
+                |  Settings
+            .row.contact-main-info.mt-5
+                .col-md-6.contact-right-content
+                    h2.heading-secondary.mb-3 Your Account Settings
+                    //- Without Api
+                    //- form(action='/submit-user-data', method='POST')
+                    //- With Api
+                    form.form-user-data
+                        label(for='firstName') First Name
+                        input#firstName(type='text', name='firstName', value=`${user.firstName}`)
+
+                        label(for='lastName') Last Name
+                        input#lastName(type='text', name='lastName', value=`${user.lastName}`)
+
+                        label(for='email') Email
+                        input#email.email(type='email', name='email', value=`${user.email}`)
+
+                        label(for='username') Username
+                        input#username(type='text', name='username', value=`${user.username}`)
+
+                        label(for='phone') Phone Number
+                        input#phone(type='tel', name='phone', value=`${user.phone}`)
+
+                        label(for='dateOfBirth') Date of Birth
+                        input#dateOfBirth(type='date', name='dateOfBirth', value=`${user.dateOfBirth}`)
+                        
+                        label(for='gender') Gender
+                        input#gender(type='text', name='gender', value=`${user.gender}`)
+
+                        label(for='streetAddress') Street Address
+                        input#streetAddress(type='text', name='streetAddress', value=`${user.address[0].streetAddress}`)
+
+                        label(for='city') City
+                        input#city(type='text' name='city', value=`${user.address[0].city}`)
+
+                        label(for="state") State
+                        input#state(type='text' name='state', value=`${user.address[0].state}`)
+
+                        label(for='zipCode') Zip Code
+                        input#zipCode(type='number', name='zipCode', value=`${user.address[0].zipCode}`)
+
+                        label(for='bio') Bio
+                        textarea#bio(name='bio', cols='30', rows='5')=`${user.bio}`
+
+                        .form__group.form__photo-upload
+                            img.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
+                        
+                        label(for='photo') Photo
+                        input#photo.img__upload(type='file', name='photo', accept='image/*')
+
+                        .read.mt-3
+                            button.custom__button(type='submit') Save Settings
+
+
+                .col-md-6.contact-right-content
+                    h2.heading-secondary.mb-3 Password Change
+                    form.form-user-password
+                        label(for='passwordCurrent') Password Current
+                        input#passwordCurrent(type='password', name='passwordCurrent', placeholder='********', minlength='8', required)
+
+                        label(for='password') Password
+                        input#password(type='password', name='password', placeholder='********', minlength='8', required)
+
+                        label(for='passwordConfirm') Confirm Password
+                        input#passwordConfirm(type='password', name='passwordConfirm', placeholder='********', minlength='8', required)
+
+                        .read.mt-3
+                            button.custom__button.btn--save-password(type='submit') Save Settings
+                            //- input.btn--save-password(type='submit', value='Save Settings')
+
+            .map-fo.mt-lg-5.mt-4
+                button.delete-user Deactivate Your Account

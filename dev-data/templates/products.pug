@@ -1,0 +1,169 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Products')
+
+    section.ab-info-main.py-md-5.py-4
+        .container.py-md-3
+            .row
+                //- product left
+                .side-bar.col-lg-4
+                    .search-bar.w3layouts-newsletter
+                        h3.sear-head Search Here..
+                        form.d-flex(action='#' method='post')
+                            input.form-control(type='search' placeholder='Product name...' name='search' required='')
+                            button.btn1
+                                span.fa.fa-search(aria-hidden='true')
+                
+                    .left-side.my-4
+                        h3.sear-head Occasion
+                        ul.w3layouts-box-list
+                            li
+                                input.checked(type='checkbox')
+                                span.span  Casuals
+                            li
+                                input.checked(type='checkbox')
+                                span.span  Party
+                            li
+                                input.checked(type='checkbox')
+                                span.span  Wedding
+                            li
+                                input.checked(type='checkbox')
+                                span.span  Ethnic
+
+                    .left-side
+                        h3.sear-head Discount
+                        ul.w3layouts-box-list
+                            li
+                                input.checked(type='checkbox')
+                                span.span  5% or More
+                            li
+                                input.checked(type='checkbox')
+                                span.span  10% or More
+                            li
+                                input.checked(type='checkbox')
+                                span.span  20% or More
+                            li
+                                input.checked(type='checkbox')
+                                span.span  30% or More
+                            li
+                                input.checked(type='checkbox')
+                                span.span  50% or More
+                            li
+                                input.checked(type='checkbox')
+                                span.span  60% or More
+
+                    .customer-rev.left-side.my-4
+                        h3.sear-head Customer Review
+                        ul.w3layouts-box-list
+                            li
+                                a(href='#')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span 5.0
+                            li
+                                a(href='#')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star-o(aria-hidden='true')
+                                    span 4.0
+                            li
+                                a(href='#')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star-half-o(aria-hidden='true')
+                                    span.fa.fa-star-o(aria-hidden='true')
+                                    span 3.5
+                            li
+                                a(href='#')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star-o(aria-hidden='true')
+                                    span.fa.fa-star-o(aria-hidden='true')
+                                    span 3.0
+                            li
+                                a(href='#')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star(aria-hidden='true')
+                                    span.fa.fa-star-half-o(aria-hidden='true')
+                                    span.fa.fa-star-o(aria-hidden='true')
+                                    span.fa.fa-star-o(aria-hidden='true')
+                                    span 2.5
+
+                    .deal-leftmk.left-side
+                        h3.sear-head Special Deals
+                        .special-sec1.row.mb-3
+                            .img-deals.col-md-4
+                                img.img-fluid(src='/images/s4.jpg' alt='')
+                            .img-deal1.col-md-4
+                                h3 Shuberry Heels
+                                a(href='shop-single.html') $180.00
+                        .special-sec1.row
+                            .img-deals.col-md-4
+                                img.img-fluid(src='/images/s2.jpg' alt='')
+                            .img-deal1.col-md-8
+                                h3 Chikku Loafers
+                                a(href='shop-single.html') $99.00
+                        .special-sec1.row.my-3
+                            .img-deals.col-md-4
+                                img.img-fluid(src='/images/s1.jpg' alt='')
+                            .img-deal1.col-md-8
+                                h3 Bella Toes
+                                a(href='shop-single.html') $165.00
+                        .special-sec1.row
+                            .img-deals.col-md-4
+                                img.img-fluid(src='/images/s5.jpg' alt='')
+                            .img-deal1.col-md-8
+                                h3 Red Bellies
+                                a(href='shop-single.html') $225.00
+                        .special-sec1.row.mt-3
+                            .img-deals.col-md-4
+                                img.img-fluid(src='/images/s3.jpg' alt='')
+                            .img-deal1.col-md-8
+                                h3 (SRV) Sneakers
+                                a(href='shop-single.html') $169.00
+
+                //- product right
+                .left-ads-display.col-lg-8
+                    .row
+                        .col-md-4.product-men.my-lg-4
+                                .product-shoe-info.shoe.text-center
+                                    .men-thumb-item
+                                        img.img-fluid(src='images/s1.jpg' alt='')
+                                        span.product-new-top New
+                                    .item-info-product
+                                        h4
+                                        a(href='shop-single.html') Bella Toes 
+                                        .product_price
+                                            .grid-price
+                                                span.money $675.00
+                                        ul.stars
+                                            li
+                                                a(href='#')
+                                                span.fa.fa-star(aria-hidden='true')
+                                            li
+                                                a(href='#')
+                                                span.fa.fa-star(aria-hidden='true')
+                                            li
+                                                a(href='#')
+                                                span.fa.fa-star-half-o(aria-hidden='true')
+                                            li
+                                                a(href='#')
+                                                span.fa.fa-star-half-o(aria-hidden='true')
+                                            li
+                                                a(href='#')
+                                                span.fa.fa-star-o(aria-hidden='true')
+
+                    .grid-img-right.mt-4.text-right
+                        span.money Flat 50% Off
+                        a.btn(href='shop-single.html') Shop Now

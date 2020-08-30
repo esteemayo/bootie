@@ -1,0 +1,145 @@
+//- main-content
+#home(class=`${page === '/' ? 'main-banner' : 'main-banner inner'}`)
+  //- header
+  header.header
+    .container-fluid.px-lg-5
+      //- nav
+      nav.py-4
+          #logo
+              h1
+                  a(href='/')
+                      span.fa.fa-bold(aria-hidden='true')
+                      | ootie
+          label.toggle(for='drop') Menu
+          input#drop(type='checkbox')
+          ul.menu.mt-2
+              li(class=`${page === '/' ? 'active' : ''}`)
+                  a(href='/') Home
+              li(class=`${page === '/blogs' ? 'active' : ''}`)
+                  a(href='/blogs') Blog
+              if (user && user.role === 'user')
+                  li(class=`${page === '/blog/new' ? 'active' : ''}`)
+                      a(href='/blog/new') Create Blog
+              li(class=`${page === '/about' ? 'active' : ''}`)
+                  a(href='/about') About
+              if (user && user.role === 'admin')
+                  li(class=`${page === '/admin/products' ? 'active' : '' || 
+                      page === '/admin/blogs' ? 'active' : '' || 
+                      page === '/admin/categories' ? 'active' : '' || 
+                      page === '/admin/reviews' ? 'active' : '' || 
+                      page === '/admin/comments' ? 'active' : ''
+                      }`)
+                      //- First Tier Drop Down
+                      label.toggle(for='drop-2')
+                          | Admin Dashboard 
+                          span.fa.fa-angle-down(aria-hidden='true')
+                      a(href='#')
+                          | Admin Dashboard 
+                          span.fa.fa-angle-down(aria-hidden='true')
+                      input#drop-2(type='checkbox')
+                      ul
+                          li
+                                a(href='/admin/products') Products
+                          li
+                              a(href='/admin/blogs') Blogs
+                          li
+                              a(href='/admin/categories') Categories
+                          li
+                              a(href='/admin/reviews') Reviews
+                          li
+                              a(href='/admin/comments') Comments
+              li(class=`${page === '/contact' ? 'active' : ''}`)
+                  a(href='/contact') Contact
+              if !user
+                  li(class=`${page === '/auth/login' ? 'active' : ''}`)
+                      a(href='/auth/login') Login
+                  li(class=`${page === '/users/register' ? 'active' : ''}`)
+                      a(href='/users/register') Register
+              if user
+                  li(class=`${page === '/account/me' ? 'active' : ''}`)
+                      a(href='/account/me')= user.username
+                  if (user.role === 'user')
+                      li(class=`${page === '/products/cart/checkout' ? 'active' : ''}`)
+                          if (typeof cart !== 'undefined')
+                              a(href='/products/cart/checkout')= `Cart (${cart.length})`
+                          else 
+                              a(href='/products/cart/checkout') Cart (0)
+                  li
+                      a.logout--btn Logout
+
+  if (page ===  '/')
+    .banner-info
+        p Trending of the week
+        h3.mb-4 Casual Shoes for Men
+        .ban-buttons
+            a.btn(href='/products') Shop Now
+            a.btn.active(href='/blogs') Read More
+
+  //- #home.main-banner.inner
+  //-   //- header
+  //-   header.header
+  //-     .container-fluid.px-lg-5
+  //-       //- nav
+  //-       nav.py-4
+  //-         #logo
+  //-           h1
+  //-             a(href='/')
+  //-               span.fa.fa-bold(aria-hidden='true')
+  //-               | ootie
+  //-         label.toggle(for='drop') Menu
+  //-         input#drop(type='checkbox')
+  //-         ul.menu.mt-2
+  //-           li(class=`${page === '/' ? 'active' : ''}`)
+  //-             a(href='/') Home
+  //-           li(class=`${page === '/blogs' ? 'active' : ''}`)
+  //-             a(href='/blogs') Blog
+  //-           if (user && user.role === 'user')
+  //-             li(class=`${page === '/blog/new' ? 'active' : ''}`)
+  //-               a(href='/blog/new') Create Blog
+  //-           li(class=`${page === '/about' ? 'active' : ''}`)
+  //-             a(href='/about') About
+  //-           if (user && user.role === 'admin')
+  //-             li(class=`${page === '/admin/products' ? 'active' : '' || 
+  //-               page === '/admin/blogs' ? 'active' : '' || 
+  //-               page === '/admin/categories' ? 'active' : '' || 
+  //-               page === '/admin/reviews' ? 'active' : '' ||
+  //-               page === '/admin/comments' ? 'active' : ''
+  //-               }`)
+  //-               //- First Tier Drop Down
+  //-               label.toggle(for='drop-2')
+  //-                 | Admin Dashboard
+  //-                 span.fa.fa-angle-down(aria-hidden='true')
+  //-               a(href='#')
+  //-                 | Admin Dashboard 
+  //-                 span.fa.fa-angle-down(aria-hidden='true')
+  //-               input#drop-2(type='checkbox')
+  //-               ul
+  //-                 li
+  //-                   a(href='/admin/products') Products
+  //-                 li
+  //-                   a(href='/admin/blogs') Blogs
+  //-                 li
+  //-                   a(href='/admin/categories') Categories
+  //-                 li
+  //-                   a(href='/admin/reviews') Reviews
+  //-                 li
+  //-                   a(href='/admin/comments') Comments
+  //-           li(class=`${page === '/contact' ? 'active' : ''}`)
+  //-             a(href='/contact') Contact
+  //-           if !user
+  //-             li(class=`${page === '/auth/login' ? 'active' : ''}`)
+  //-               a(href='/auth/login') Login
+  //-             li(class=`${page === '/users/register' ? 'active' : ''}`)
+  //-               a(href='/users/register') Register
+  //-           if user
+  //-             li(class=`${page === '/account/me' ? 'active' : ''}`)
+  //-               a(href='/account/me')= user.username
+  //-             if (user.role === 'user')
+  //-               li(class=`${page === '/products/cart/checkout' ? 'active' : ''}`)
+  //-                 if (typeof cart !== 'undefined')
+  //-                   a(href='/products/cart/checkout')= `Cart (${cart.length})`
+  //-                 else 
+  //-                   a(href='/products/cart/checkout') Cart (0)
+  //-             li
+  //-               a.logout--btn Logout
+  //-       //- nav

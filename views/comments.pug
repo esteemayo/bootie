@@ -1,0 +1,28 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Admin-Comment')
+
+    section.ab-info-main.py-md-5
+        .container.py-md-3
+            h3.tittle.text-center.mb-lg-5.mb-3= `Comments(${comments.length})`
+                .speak.px-lg-5
+                    .row.mt-lg-5.mt-4
+                        table.table
+                            thead
+                                tr
+                                    th #
+                                    th Name
+                                    th Delete
+                            tbody
+                                each comment, i in comments
+                                    tr
+                                        td= `${i + 1}`
+                                        td= comment.commentBody
+                                        td 
+                                            form(action=`/admin/comments/${comment._id}?_method=DELETE`, method="POST")
+                                                input(type="submit", value="Delete")
+

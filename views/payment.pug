@@ -1,0 +1,60 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Checkout')
+
+    - let total = 0;
+    each product in cart
+        - const price = parseFloat(product.priceDiscount).toFixed(2);
+        - const sub = parseFloat(product.qty * price).toFixed(2);
+        p.hidden !{total += +sub}
+        //- h6.tittle.text-center= `Your Total: $${total}`
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-title Checkout
+            .row.contact-main-info.mt-5
+                .col-md-4.contact-right-content
+                .col-md-4.contact-right-content
+                    #charge-error.alert.alert-danger.hidden
+                    form#payment-form(action='/charge', method='POST')
+                        //- label(for='name') Name 
+                        //-     span.field__required *
+                        //- input#name(type='text', name='name', required)
+
+                        //- label(for='address') Address 
+                        //-     span.field__required *
+                        //- input#address(type='text', name='address' required)
+
+                        //- label(for='cardName') Card Holder Name 
+                        //-     span.field__required *
+                        //- input#cardName(type='text', name='cardName', required)
+
+                        //- label(for='cardNumber') Credit Card Number 
+                        //-     span.field__required *
+                        //- input#cardNumber(type='text', name='cardNumber', required)
+
+                        //- label(for='cardExpiryMonth') Expiry Month 
+                        //-     span.field__required *
+                        //- input#cardExpiryMonth(type='text', name='cardExpiryMonth', required)
+                            
+                        //- label(for='cardExpiryYear') Expiry Year 
+                        //-     span.field__required *
+                        //- input#cardExpiryYear(type='text', name='cardExpiryYear', required)
+                            
+                        //- label(for='cardCvc') CVC
+                        //-     span.field__required *
+                        //- input#cardCvc(type='text', name='cardCvc', required)
+
+                        label(for='card-element') Credit Card
+                        #card-element
+
+                        div#card-errors(role='alert')
+
+                        .read.mt-3
+                            //- input(type='submit', value='Register')
+                            button(type='submit') Submit Payment
+

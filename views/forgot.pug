@@ -1,0 +1,21 @@
+extends base
+
+include _headLine
+
+block content
+
+    +headLine('Forgot Password')
+
+    section.ab-info-main.py-5
+        .container.py-3
+            h3.tittle.text-center
+                span.sub-title Forgot Password
+            .row.contact-main-info.mt-5
+                .col-md-4.contact-right-content
+                .col-md-4.contact-right-content
+                    form.form--forgot-password
+                        label(for="email") Email 
+                            span.field__required *
+                        input#email(type="email", name="email", placeholder="user@example.com", required, autofocus)
+                        .read.mt-3
+                            input(type="submit", value="Send")
