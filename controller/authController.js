@@ -86,7 +86,7 @@ exports.login = catchAsync(async (req, res, next) => {
     }
 
     // Send login notification to user via email
-    // await new SendEmail(user, user.email).sendLoginNotification();
+    await new SendEmail(user, user.email).sendLoginNotification();
     createSendToken(user, 200, res);
 });
 
