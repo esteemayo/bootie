@@ -32,7 +32,7 @@ block content
 
                         - const datePosted = blog.createdAt.toLocaleString('en-us', {day: 'numeric', month: 'long', year: 'numeric'})
                         p.blog__user= `Posted by ${blog.user.username} on ` 
-                            span= `${datePosted}`
+                            span= datePosted
                 .single-form-left
                     if (user)
                         .contact-single

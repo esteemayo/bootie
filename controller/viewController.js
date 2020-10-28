@@ -56,7 +56,7 @@ exports.blogOverview = catchAsync(async (req, res, next) => {
 
 exports.getBlog = catchAsync(async (req, res, next) => {
     // Get blog from collection using slug as filter object & populate comments into the collection
-    const blog = await Blog.findOne({ slug: req.params.slug }).populate({
+    const blog = await Blog.findOne({ slug: req.params.slug }).select('+createdAt').populate({
         path: 'comments',
         fields: 'commentBody user'
     });
