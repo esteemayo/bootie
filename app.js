@@ -27,6 +27,7 @@ const Product = require('./models/Product');
 const Review = require('./models/Review');
 const Category = require('./models/Category');
 const catchAsync = require('./utils/catchAsync');
+const helpers = require('./helpers');
 
 // Start express app
 const app = express();
@@ -132,6 +133,7 @@ app.use(catchAsync(async (req, res, next) => {
 
 app.use((req, res, next) => {
     res.locals.page = req.originalUrl;
+    res.locals.h = helpers;
     next();
 });
 
