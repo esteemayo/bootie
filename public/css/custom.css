@@ -749,8 +749,8 @@ p.hidden {
 }
 
 .review__btn {
-  background-color: #212529;
-  color: #ff4c4c;
+  background-color: #212529 !important;
+  color: #ff4c4c !important;
 }
 
 .product__image {
@@ -785,6 +785,147 @@ p.hidden {
 .product__login:hover,
 .product__login:visited {
   color: #ff4c4c;
+}
+
+.reviewer {
+  position: relative;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+.reviewer__stars {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.reviewer__stars input {
+  display: none;
+}
+.reviewer__stars input:checked ~ label {
+  color: #ffc40e;
+}
+.reviewer__stars input + label {
+  font-size: 0;
+  /* These are in the opposite DOM order
+           re-order them to be visually in normal order
+           This is fine for accessibility because our labels have for()
+         */
+}
+.reviewer__stars input + label:before {
+  content: '\2605';
+  font-size: 2rem;
+}
+.reviewer__stars input + label[for='star5'] {
+  -ms-flex-order: 5;
+  order: 5;
+}
+.reviewer__stars input + label[for='star4'] {
+  -ms-flex-order: 4;
+  order: 4;
+}
+.reviewer__stars input + label[for='star3'] {
+  -ms-flex-order: 3;
+  order: 3;
+}
+.reviewer__stars input + label[for='star2'] {
+  -ms-flex-order: 2;
+  order: 2;
+}
+.reviewer__stars input + label[for='star1'] {
+  -ms-flex-order: 1;
+  order: 1;
+}
+.reviewer__stars input + label:hover,
+.reviewer__stars input + label:hover ~ label {
+  color: #ffdd74;
+}
+.reviewer textarea {
+  border: 0;
+  outline: 0;
+  font-size: 2rem;
+  padding: 2rem;
+  height: 200px;
+}
+.reviewer__meta {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  algin-items: center;
+  border-top: 1px solid #e6e6e6;
+}
+.reviewer__meta > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+html [type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
 }
 
 /* .hidden {
