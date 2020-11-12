@@ -8,4 +8,4 @@ mixin productReview(review)
                     svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
                         use(xlink:href='/img/icons.svg#icon-star')
             p.mt-2= review.review
-            p.mt-2= review.createdAt
+            time.mt-2(datetime=review.createdAt)= h.moment(review.createdAt).fromNow()

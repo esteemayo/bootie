@@ -1,7 +1,7 @@
 extends base
 
-include _headLine
-include _productReview
+include mixins/_headLine
+include mixins/_productReview
 
 block content
 
@@ -68,13 +68,14 @@ block content
                                         span.sub-tittle 
                                         | Leave a Review
                                     form.reviewer.mt-4(action=`/products/${product._id}/reviews`, method='POST')
-                                        textarea#review.form-control.border(name="review" required)
+                                        textarea#review.form-control.border(name='review' placeholder='Did you try this product? Have something to say? Leave a review...' required)
                                         .reviewer__meta
                                             .reviewer__stars
                                                 each star in [5, 4, 3, 2, 1]
                                                     input(type='radio' id=`star${star}` name='rating' value=star required)
                                                     label(for=`star${star}`) #{star} Stars
                                             input.button.review__btn(type='submit' value='Submit Review →')
+                                    br
                                     //- form.reviewer.mt-4(action=`/products/${product._id}/reviews`, method='POST')
                                         //- .form-group
                                         //-     label(for="review") Your Review *

@@ -1,6 +1,6 @@
 extends base
 
-include _headLine
+include mixins/_headLine
 
 block content
 
@@ -32,7 +32,7 @@ block content
 
                         - const datePosted = blog.createdAt.toLocaleString('en-us', {day: 'numeric', month: 'long', year: 'numeric'})
                         p.blog__user= `Posted by ${blog.user.username} on ` 
-                            span= datePosted
+                            span: time(datetime=blog.createdAt)= datePosted
                 .single-form-left
                     if (user)
                         .contact-single
@@ -57,4 +57,5 @@ block content
                         .media-body
                             h5.mt-0= comment.user.fullName
                             p.mt-2= comment.commentBody
+                            time(datetime=comment.createdAt)= h.moment(comment.createdAt).fromNow()
 

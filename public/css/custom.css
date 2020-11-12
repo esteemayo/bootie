@@ -840,7 +840,7 @@ p.hidden {
   color: #ffdd74;
 }
 .reviewer textarea {
-  border: 0;
+  border: 0 !important;
   outline: 0;
   font-size: 2rem;
   padding: 2rem;
@@ -851,7 +851,7 @@ p.hidden {
   display: flex;
   -ms-flex-pack: center;
   justify-content: center;
-  algin-items: center;
+  align-items: center;
   border-top: 1px solid #e6e6e6;
 }
 .reviewer__meta > * {
@@ -926,6 +926,10 @@ button:-moz-focusring,
 [type='reset']:-moz-focusring,
 [type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
+}
+
+textarea {
+  font-size: medium !important;
 }
 
 /* .hidden {
