@@ -100,6 +100,17 @@ app.use(hpp({
 app.use(compression());
 
 app.use(catchAsync(async (req, res, next) => {
+    const customerReviews = await Review.aggregate([
+        {
+            $sample: { size: 5 }
+        }
+    ]);
+
+    res.locals.customerReviews = customerReviews;
+    next();
+}));
+
+app.use(catchAsync(async (req, res, next) => {
     const reviews = await Review
         .find()
         .limit(1)

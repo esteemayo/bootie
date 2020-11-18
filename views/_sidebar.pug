@@ -1,3 +1,5 @@
+include mixins/_review
+
 //- product left
 .side-bar.col-lg-4
     .search-bar.w3layouts-newsletter
@@ -14,6 +16,11 @@
                 li
                     a.sidebar__link(href=`/products/category/${category.slug}`)= category.name
 
+    .customer-rev.left-side.my-4
+        h3.sear-head Customer Review
+        each review in customerReviews
+            ul.w3layouts-box-list
+                li: +review(review)
 
     .deal-leftmk.left-side
         h3.sear-head Special Deals

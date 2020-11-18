@@ -1,0 +1,4 @@
+mixin review(review)
+    .review__starss(title=`Rated ${review.rating} out of 5 stars`)
+        = `★`.repeat(review.rating)
+        = `☆`.repeat(5 - review.rating)
