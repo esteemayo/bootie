@@ -22,8 +22,8 @@ const db = process.env.DATABASE.replace(
 );
 
 // MongoDB connection
-// mongoose.connect(db, {
-    mongoose.connect(dbLocal, {
+mongoose.connect(db, {
+    // mongoose.connect(dbLocal, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
